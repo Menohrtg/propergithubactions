@@ -1,5 +1,5 @@
 name: First workflow
-run-name: Deployed by ${{github.actor}}
+#run-name: Deployed by ${{github.actor}}
 on:
     push: 
         branches: 
