@@ -15,7 +15,7 @@ jobs:
               uses: actions/checkout@v3
             - name: 🍏Powershel
               run: |
-                Write-Host "Thisi is going to fail because i want it to fail"
+                echo "This is going to fail because i want it to fail"
     my_second_job:
         name: second job 
         if: ${{always()}}
