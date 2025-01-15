@@ -13,4 +13,11 @@ jobs:
         steps:
             - name: 🍏checkout step
               uses: actions/checkout@v3
+    my_second_job:
+        name: second job 
+        needs: [my_first_job]
+        runs-on: ubuntu-latest
+        steps: 
+            - name: 🍏 checkout step
+              uses: actions/checkout@v3
             
