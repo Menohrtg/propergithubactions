@@ -17,6 +17,9 @@ jobs:
               run: |
                 echo "This is going to fail because i want it to fail"
     my_second_job:
+        environment:
+            name: 'PROD'
+            url: https//www.google.com
         name: second job 
         if: ${{always()}}
         needs: [my_first_job]
