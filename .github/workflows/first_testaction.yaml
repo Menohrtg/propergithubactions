@@ -1,40 +1,37 @@
 name: First workflow
-#run-name: Deployed by ${{github.actor}}
 on:
-    push: 
-        branches: 
-            - main
-            - dev
-    workflow_dispatch: 
+  push: 
+    branches: 
+      - main
+      - dev
+  workflow_dispatch: 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
 jobs:
-    my_first_job:
-        name: build job
-        runs-on: ubuntu-latest
-        steps:
-            - name: 🍏checkout step
-              uses: actions/checkout@v3
-            - name: 🍏Powershel
-              run: |
-                echo "This is going to fail because i want it to fail"
-                sleep 10
-    my_second_job:
-        environment:
-            name: 'PROD'
-            url: https//www.google.com
-        name: second job 
-        if: ${{always()}}
-        needs: [my_first_job]
-        concurrency:
-            group: PROD
-            cancel-in-progress: true
-        runs-on: ubuntu-latest
-        steps: 
-            - name: 🍏 checkout step
-              uses: actions/checkout@v3
-            - name: 🍏 linux inline script
-              run: |
-                echo "testing for concurrency and this to check for the script"
-            
+  my_first_job:
+    name: build job
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🍏checkout step
+        uses: actions/checkout@v3
+      - name: 🍏Powershel
+        run: |
+          echo "This is going to fail because i want it to fail"
+          sleep 10
+
+  my_second_job:
+    environment:
+      name: 'PROD'
+      url: https://www.google.com
+    name: second job 
+    if: ${{ always() }}
+    needs: [my_first_job]
+    runs-on: ubuntu-latest
+    steps: 
+      - name: 🍏 checkout step
+        uses: actions/checkout@v3
+      - name: 🍏 linux inline script
+        run: |
+          echo "testing for concurrency and this to check for the script"
