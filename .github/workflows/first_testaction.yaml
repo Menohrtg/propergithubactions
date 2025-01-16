@@ -27,6 +27,9 @@ jobs:
         name: second job 
         if: ${{always()}}
         needs: [my_first_job]
+        concurrency:
+            group: PROD
+            cancel-in-progress: true
         runs-on: ubuntu-latest
         steps: 
             - name: 🍏 checkout step
