@@ -38,3 +38,4 @@ jobs:
       - name: 🍏 linux inline script
         run: |
           echo "testing for concurrency and this to check for the script"
+          echo "${{env.name}}"
