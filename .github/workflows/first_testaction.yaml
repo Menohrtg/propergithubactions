@@ -12,7 +12,7 @@ concurrency:
 jobs:
   my_first_job:
     name: build job
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: 🍏checkout step
         uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
     name: second job 
     if: ${{ always() }}
     needs: [my_first_job]
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps: 
       - name: 🍏 checkout step
         uses: actions/checkout@v3
