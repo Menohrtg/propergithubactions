@@ -20,6 +20,7 @@ jobs:
         run: |
           echo "This is going to fail because i want it to fail"
           sleep 10
+          echo "${{vars.MY_NAME}}"
 
   my_second_job:
     environment:
