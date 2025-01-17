@@ -15,6 +15,8 @@ concurrency:
 jobs:
   my_first_job:
     name: build job
+    environment: 
+        name: 'PROD'
     runs-on: windows-latest
     steps:
       - name: 🍏checkout step
