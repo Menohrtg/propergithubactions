@@ -4,6 +4,8 @@ on:
     branches: 
       - main
       - dev
+env:
+  name: ${{vars.MY_NAME}}
   workflow_dispatch: 
 concurrency:
   group: ${{ github.workflow}}-${{ github.ref }}
@@ -20,7 +22,7 @@ jobs:
         run: |
           echo "This is going to fail because i want it to fail"
           sleep 10
-          echo "${{vars.MY_NAME}}"
+          echo "${{env.name}}"
 
   my_second_job:
     environment:
